@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "refit_root_relative_to_config": "../..",
+  "output_dir_relative_to_config": "../../outputs/field_tests",
+  "inputs": {
+    "events": "outputs/macro_transition/fixed_D4K4_memberships_with_D13_coordinates_REFIT.csv",
+    "edges": "outputs/macro_transition/authoritative_event_transitions_D4K4_REFIT.csv",
+    "assignments": "outputs/assignments/REFIT_Multiple_Event_Assignments.csv",
+    "independent_edges": "outputs/assignments/inputs/event_edges.csv",
+    "independent_events": "outputs/assignments/inputs/new_events.csv"
+  },
+  "participant_labels": {
+    "p01": "Participant 1",
+    "p02": "Participant 2",
+    "p03": "Participant 3",
+    "p04": "Participant 4",
+    "p05": "Participant 5"
+  }
+}

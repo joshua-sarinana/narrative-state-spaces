@@ -1,0 +1,123 @@
+{
+  "scope": "Package integration tests against archived numerical targets; not a fresh execution of the full scientific analyses.",
+  "master_rows": 256,
+  "master_columns": 46,
+  "archived_target_checks": 52,
+  "source_input_unchanged": true,
+  "changed_existing_code": [
+    "code/verify_reproduction.py",
+    "code/run_pipeline.py"
+  ],
+  "new_code": [
+    "code/build_master_table.py"
+  ],
+  "tests": [
+    {
+      "test": "All 52 compact comparisons match the inherited archived targets and reconstructed master table",
+      "passed": true
+    },
+    {
+      "test": "Changed basin membership fails the integrated-table comparison",
+      "passed": true
+    },
+    {
+      "test": "Changed basin-screen fitted count fails the summary comparison",
+      "passed": true
+    },
+    {
+      "test": "Declared metric allowance and strict-numerics mode retain distinct outcomes",
+      "passed": true
+    },
+    {
+      "test": "Metric allowance is blocked when its strict coordinate prerequisite fails",
+      "passed": true
+    },
+    {
+      "test": "Master-table builder rejects a sequence link to a missing event",
+      "passed": true
+    },
+    {
+      "test": "Source CSV and every numerical analysis module are byte-for-byte unchanged",
+      "passed": true
+    },
+    {
+      "test": "All released Python files parse successfully",
+      "passed": true
+    },
+    {
+      "test": "All original analytical commands and parameters are preserved",
+      "passed": true
+    }
+  ],
+  "full_pipeline_rerun": false,
+  "execution_checks": [
+    {
+      "test": "input_and_boundary_execution_without_reference_files",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "test": "partial_verification",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "test": "incomplete_full_run_rejected",
+      "passed": true,
+      "exit_code": 1
+    }
+  ],
+  "date": "2026-09-29",
+  "executed_scientific_stages": [
+    "01_boundaries"
+  ],
+  "input_validation": {
+    "event_states": 256,
+    "participants": 5,
+    "processing_segments": 21,
+    "source_excerpts": 442,
+    "narrative_adjacencies": 251,
+    "within_segment_boundaries": 235,
+    "between_segment_joins": 16
+  },
+  "privacy_checks": {
+    "original_participant_and_event_keys_removed": true,
+    "private_identifier_crosswalk_included": false,
+    "neutral_keys_match_source_input": true,
+    "code_identifier_ij_occurrences_reviewed": "Array-index variables and Einstein-summation expressions; not participant identifiers."
+  },
+  "master_numeric_comparison": {
+    "rows": 256,
+    "columns": 46,
+    "participants": 5,
+    "participant_counts": {
+      "p01": 29,
+      "p02": 56,
+      "p03": 66,
+      "p04": 34,
+      "p05": 71
+    },
+    "directed_adjacencies": 251,
+    "macro_counts": {
+      "1": 133,
+      "2": 59,
+      "4": 47,
+      "3": 17
+    },
+    "all_shared_features_and_sequence_links_match_public_input": true,
+    "all_basin_and_macro_memberships_match_release_references": true,
+    "maximum_coordinate_difference": 0.0,
+    "all_sequence_descriptors_valid": true,
+    "removed_fields": [
+      "hippo_id",
+      "uid_norm",
+      "hippo_weight_tag",
+      "n_theme_assignments_event"
+    ],
+    "added_fields": [
+      "conj_rep",
+      "anchor_changed_to_next_within_segment"
+    ],
+    "identifiers": "Existing public keys retained consistently across participant, event, segment, chain and adjacency fields."
+  }
+}

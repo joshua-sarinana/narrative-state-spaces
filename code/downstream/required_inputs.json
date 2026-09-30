@@ -1,0 +1,18 @@
+[
+  "Protocol.json",
+  "inputs/new_events.csv",
+  "inputs/event_edges.csv",
+  "inputs/INPUT_PROVENANCE.json",
+  "results/Frozen_Shortlist.json",
+  "results/Final_Event_Assignments.csv",
+  "selected/D2_K8_L8_U39/Assignment.json",
+  "selected/D2_K8_L8_U39/Event_Memberships.csv",
+  "selected/D2_K9_L8_U50/Assignment.json",
+  "selected/D2_K9_L8_U50/Event_Memberships.csv",
+  "selected/D4_K10_L9_U47/Assignment.json",
+  "selected/D4_K10_L9_U47/Event_Memberships.csv",
+  "selected/D4_K6_L8_U50/Assignment.json",
+  "selected/D4_K6_L8_U50/Event_Memberships.csv",
+  "selected/D4_K9_L8_U49/Assignment.json",
+  "selected/D4_K9_L8_U49/Event_Memberships.csv"
+]

@@ -1,0 +1,272 @@
+[
+  {
+    "axis": "Dim0",
+    "anchor_event": "p02-s4-h004",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim1",
+    "anchor_event": "p02-s4-h004",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim2",
+    "anchor_event": "p02-s4-h004",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim3",
+    "anchor_event": "p03-s6-h006",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim4",
+    "anchor_event": "p02-s4-h004",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim5",
+    "anchor_event": "p04-s2-h006",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim6",
+    "anchor_event": "p02-s4-h014",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim7",
+    "anchor_event": "p02-s4-h004",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim8",
+    "anchor_event": "p02-s4-h020",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim9",
+    "anchor_event": "p01-s1-h003",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim10",
+    "anchor_event": "p02-s4-h020",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim11",
+    "anchor_event": "p03-s4-h005",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim12",
+    "anchor_event": "p03-s6-h005",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim13",
+    "anchor_event": "p02-s3-h010",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim14",
+    "anchor_event": "p02-s4-h020",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim15",
+    "anchor_event": "p05-s2-h008",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim16",
+    "anchor_event": "p03-s3-h006",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim17",
+    "anchor_event": "p02-s4-h020",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim18",
+    "anchor_event": "p02-s4-h020",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim19",
+    "anchor_event": "p05-s3-h007",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim20",
+    "anchor_event": "p04-s2-h011",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim21",
+    "anchor_event": "p02-s4-h020",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim22",
+    "anchor_event": "p02-s4-h011",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim23",
+    "anchor_event": "p02-s4-h016",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim24",
+    "anchor_event": "p02-s4-h020",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim25",
+    "anchor_event": "p02-s4-h020",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim26",
+    "anchor_event": "p02-s4-h020",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim27",
+    "anchor_event": "p02-s4-h020",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim28",
+    "anchor_event": "p03-s6-h005",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim29",
+    "anchor_event": "p02-s4-h020",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim30",
+    "anchor_event": "p02-s4-h018",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim31",
+    "anchor_event": "p03-s6-h010",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim32",
+    "anchor_event": "p05-s2-h006",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim33",
+    "anchor_event": "p05-s4-h006",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim34",
+    "anchor_event": "p03-s1-h006",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim35",
+    "anchor_event": "p01-s1-h003",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim36",
+    "anchor_event": "p03-s6-h010",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim37",
+    "anchor_event": "p05-s3-h009",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim38",
+    "anchor_event": "p05-s2-h006",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim39",
+    "anchor_event": "p01-s2-h005",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim40",
+    "anchor_event": "p05-s4-h006",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim41",
+    "anchor_event": "p04-s2-h007",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim42",
+    "anchor_event": "p01-s1-h003",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim43",
+    "anchor_event": "p04-s3-h010",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim44",
+    "anchor_event": "p01-s1-h003",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim45",
+    "anchor_event": "p03-s5-h009",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim46",
+    "anchor_event": "p04-s1-h004",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim47",
+    "anchor_event": "p05-s3-h010",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim48",
+    "anchor_event": "p02-s2-h009",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim49",
+    "anchor_event": "p05-s5-h006",
+    "expected_sign": -1
+  },
+  {
+    "axis": "Dim50",
+    "anchor_event": "p01-s3-h007",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim51",
+    "anchor_event": "p03-s5-h005",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim52",
+    "anchor_event": "p04-s1-h005",
+    "expected_sign": 1
+  },
+  {
+    "axis": "Dim53",
+    "anchor_event": "p04-s2-h008",
+    "expected_sign": 1
+  }
+]

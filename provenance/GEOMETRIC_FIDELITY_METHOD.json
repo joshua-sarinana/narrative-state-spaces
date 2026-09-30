@@ -1,0 +1,19 @@
+{
+  "method": "explicit_self_exclusion_event_key_ties_v1",
+  "distance_tie_atol": 1e-10,
+  "distance_tie_rtol": 0,
+  "neighborhoods": [
+    5,
+    10,
+    20
+  ],
+  "self_neighbors": false,
+  "neighbor_tie_order": [
+    "participant_id_norm",
+    "hippo_id_norm"
+  ],
+  "tie_group": "distance minus block minimum <= absolute tie threshold",
+  "spearman_ties": "average ranks",
+  "reference_validation": "saved coordinates and independent MCA refit agree at absolute tolerance 1e-10",
+  "documentation": "documentation/GEOMETRIC_FIDELITY.md"
+}

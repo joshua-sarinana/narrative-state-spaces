@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "assignments": [
+    "D4_K10_L9_U47",
+    "D4_K9_L8_U49",
+    "D4_K6_L8_U50",
+    "D2_K9_L8_U50",
+    "D2_K8_L8_U39"
+  ],
+  "participants": [
+    "p01",
+    "p02",
+    "p03",
+    "p04",
+    "p05"
+  ],
+  "events": 256,
+  "event_edges": 251,
+  "components": 60,
+  "n_permutations": 10000,
+  "seed": 42,
+  "gamma": 0.9,
+  "primary_geometry_D": 4,
+  "reference_geometry_D": [
+    10,
+    13
+  ],
+  "MCA_refit": false,
+  "basin_refit": false,
+  "smoothing": false,
+  "analyses": {
+    "visit_exclusion": 25,
+    "event_order": 5,
+    "profiles": 5,
+    "routing_exclusion": 25
+  },
+  "profiles": [
+    "P",
+    "I_plus_gammaP",
+    "M",
+    "M_minus_I"
+  ],
+  "centroid_conditions": [
+    "fixed_full_geometry",
+    "omission_specific_geometry"
+  ],
+  "order_null": "within-participant event-position permutation, same null for narrated and reversed",
+  "geometry_null": "common basin-label permutation of profile-distance matrix",
+  "visit_recurrence_null": "omit participant, shuffle retained event labels within each participant, then collapse runs",
+  "routing_null": "historical global source-transition condition-payload permutation",
+  "routing_condition_support_minimum": 10,
+  "routing_shared_source_minimum": 3,
+  "BH_conditioned_family_size": 3,
+  "selection_from_downstream_results": false
+}

@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Please cite the associated manuscript and the archived release when available."
+title: "Event Memory and Narrative Dynamics: A Large Language Model Framework for Multidimensional State Spaces"
+type: software
+version: "256-event-compact-1"
+authors:
+  - family-names: "Sariñana"
+    given-names: "Joshua"
+license: MIT

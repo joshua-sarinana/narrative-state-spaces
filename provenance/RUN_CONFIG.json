@@ -1,0 +1,401 @@
+[
+  {
+    "id": "01_boundaries",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/stage_tools.py",
+        "validate"
+      ],
+      [
+        "code/boundaries.py",
+        "boundary_summary",
+        "--event-xlsx",
+        "data/event_level_analysis_input.csv",
+        "--out-dir",
+        "outputs/boundaries"
+      ]
+    ],
+    "outputs": [
+      "outputs/boundaries"
+    ]
+  },
+  {
+    "id": "02_mca",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/mca/mca.py",
+        "--input",
+        "data/event_level_analysis_input.csv",
+        "--input-sheet",
+        "public_event_table",
+        "--out-dir",
+        "outputs/mca"
+      ],
+      [
+        "code/stage_tools.py",
+        "orient"
+      ]
+    ],
+    "outputs": [
+      "outputs/mca"
+    ]
+  },
+  {
+    "id": "03_projection",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/mca/projection.py",
+        "--input",
+        "data/event_level_analysis_input.csv",
+        "--input-sheet",
+        "public_event_table",
+        "--upstream-dir",
+        "outputs/mca",
+        "--out-dir",
+        "outputs/projection"
+      ]
+    ],
+    "outputs": [
+      "outputs/projection"
+    ]
+  },
+  {
+    "id": "04_macro_grid",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/mca/macro_grid.py",
+        "--event-table",
+        "data/event_level_analysis_input.csv",
+        "--event-sheet",
+        "public_event_table",
+        "--full-coordinates",
+        "outputs/mca/tables/mca_full_54d_row_coordinates.csv",
+        "--upstream-selected-k",
+        "outputs/mca/tables/kmeans_consensus_selected_k_by_dimension.csv",
+        "--upstream-dir",
+        "outputs/mca",
+        "--out-dir",
+        "outputs/macro"
+      ]
+    ],
+    "outputs": [
+      "outputs/macro"
+    ]
+  },
+  {
+    "id": "05_macro_hierarchy",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/mca/macro_hierarchy.py",
+        "--full-coordinates",
+        "outputs/mca/tables/mca_full_54d_row_coordinates.csv",
+        "--macro-tables-dir",
+        "outputs/macro/tables",
+        "--out-dir",
+        "outputs/hierarchy"
+      ]
+    ],
+    "outputs": [
+      "outputs/hierarchy"
+    ]
+  },
+  {
+    "id": "06_macro_canonical",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/mca/macro_canonical.py",
+        "--mca-dir",
+        "outputs/mca",
+        "--macro-dir",
+        "outputs/macro",
+        "--hierarchy-dir",
+        "outputs/hierarchy",
+        "--projection-dir",
+        "outputs/projection",
+        "--out-dir",
+        "outputs/macro_canonical"
+      ]
+    ],
+    "outputs": [
+      "outputs/macro_canonical"
+    ]
+  },
+  {
+    "id": "07_macro_sensitivity",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/mca/macro_sensitivity.py",
+        "--mca-dir",
+        "outputs/mca",
+        "--macro-dir",
+        "outputs/macro",
+        "--hierarchy-dir",
+        "outputs/hierarchy",
+        "--canonical-dir",
+        "outputs/macro_canonical",
+        "--out-dir",
+        "outputs/macro_sensitivity"
+      ]
+    ],
+    "outputs": [
+      "outputs/macro_sensitivity"
+    ]
+  },
+  {
+    "id": "08_macro_transition",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/stage_tools.py",
+        "macro_transition"
+      ]
+    ],
+    "outputs": [
+      "outputs/macro_transition"
+    ]
+  },
+  {
+    "id": "09_assignment_inputs",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/stage_tools.py",
+        "assignment_inputs"
+      ],
+      [
+        "code/assignment/selection.py",
+        "init"
+      ]
+    ],
+    "outputs": [
+      "outputs/assignments/inputs",
+      "outputs/assignments/Protocol.json",
+      "outputs/assignments/Input_Checks.json"
+    ]
+  },
+  {
+    "id": "10_screen",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/assignment/selection.py",
+        "screen"
+      ]
+    ],
+    "outputs": [
+      "outputs/assignments/results/Screen.csv",
+      "outputs/assignments/results/Screen_Assignments.csv",
+      "outputs/assignments/results/Pilot_Configurations.csv"
+    ]
+  },
+  {
+    "id": "11_pilot",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/assignment/selection.py",
+        "pilot"
+      ]
+    ],
+    "outputs": [
+      "outputs/assignments/results/Validation_Configurations.csv"
+    ]
+  },
+  {
+    "id": "12_validate",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/assignment/selection.py",
+        "validate"
+      ]
+    ],
+    "outputs": [
+      "outputs/assignments/results/validation/Summary.csv",
+      "outputs/assignments/results/validation/Trials.csv"
+    ]
+  },
+  {
+    "id": "13_select",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/assignment/selection.py",
+        "select"
+      ]
+    ],
+    "outputs": [
+      "outputs/assignments/results/Final_Shortlist.csv",
+      "outputs/assignments/results/Final_Event_Assignments.csv",
+      "outputs/assignments/results/Frozen_Shortlist.json"
+    ]
+  },
+  {
+    "id": "14_assignment_verification",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/assignment/verify.py"
+      ],
+      [
+        "code/assignment/export.py"
+      ]
+    ],
+    "outputs": [
+      "outputs/assignments/results/Independent_Verification.json",
+      "outputs/assignments/selected",
+      "outputs/assignments/REFIT_Multiple_Assignment_Summary.csv",
+      "outputs/assignments/REFIT_Multiple_Event_Assignments.csv"
+    ]
+  },
+  {
+    "id": "14b_master_table",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/build_master_table.py"
+      ]
+    ],
+    "outputs": [
+      "outputs/integration/master_regime_table_eventlevel_REFIT.csv"
+    ]
+  },
+  {
+    "id": "15_downstream",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/downstream/run_downstream.py",
+        "run",
+        "--project-root",
+        ".",
+        "--assignment-run",
+        "outputs/assignments",
+        "--coordinates",
+        "outputs/mca/tables/mca_full_54d_row_coordinates.csv",
+        "--output",
+        "outputs/downstream/local",
+        "--workers",
+        "{workers}"
+      ]
+    ],
+    "outputs": [
+      "outputs/downstream/local"
+    ]
+  },
+  {
+    "id": "16_controls",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/controls/run_controls.py",
+        "--project-root",
+        ".",
+        "--baseline-run",
+        "outputs/downstream/local",
+        "--output",
+        "outputs/downstream/controls",
+        "--workers",
+        "{workers}"
+      ]
+    ],
+    "outputs": [
+      "outputs/downstream/controls"
+    ]
+  },
+  {
+    "id": "17_robustness",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/robustness/run_robustness.py",
+        "--project-root",
+        ".",
+        "--baseline-run",
+        "outputs/downstream/local",
+        "--controls-run",
+        "outputs/downstream/controls",
+        "--output",
+        "outputs/downstream/robustness",
+        "--workers",
+        "{workers}"
+      ]
+    ],
+    "outputs": [
+      "outputs/downstream/robustness"
+    ]
+  },
+  {
+    "id": "18_cross_solution",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/cross/run_cross_solution_assessment.py",
+        "--input-root",
+        "outputs/downstream",
+        "--output",
+        "outputs/cross_solution"
+      ]
+    ],
+    "outputs": [
+      "outputs/cross_solution"
+    ]
+  },
+  {
+    "id": "19_event_distance",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/event_distance/run_event_distance_test.py",
+        "--refit-root",
+        ".",
+        "--output-dir",
+        "outputs/event_distance"
+      ],
+      [
+        "code/stage_tools.py",
+        "distance_summary"
+      ]
+    ],
+    "outputs": [
+      "outputs/event_distance"
+    ]
+  },
+  {
+    "id": "20_field_tests",
+    "group": "analysis",
+    "commands": [
+      [
+        "code/field_tests/run_flow_macro_basin_tests.py",
+        "--refit-root",
+        ".",
+        "--output-dir",
+        "outputs/field_tests"
+      ]
+    ],
+    "outputs": [
+      "outputs/field_tests"
+    ]
+  },
+  {
+    "id": "21_figures",
+    "group": "figures",
+    "commands": [
+      [
+        "code/figures/run_figures.py",
+        "--dpi",
+        "300"
+      ]
+    ],
+    "outputs": [
+      "outputs/figures"
+    ]
+  }
+]

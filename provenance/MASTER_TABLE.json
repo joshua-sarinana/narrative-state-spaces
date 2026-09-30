@@ -1,0 +1,154 @@
+{
+  "artifact": "master_regime_table_eventlevel_REFIT.csv",
+  "status": "Public derived integration and verification table; rebuilt from the released input and computed outputs.",
+  "rows": 256,
+  "columns": 46,
+  "key": [
+    "participant_id_norm",
+    "hippo_id_norm"
+  ],
+  "source_input": "data/event_level_analysis_input.csv",
+  "computed_sources": {
+    "geometry": "outputs/mca/tables/mca_full_54d_row_coordinates.csv",
+    "macro_clusters": "outputs/macro_canonical/tables/d4_k4_event_memberships_REFIT.csv",
+    "basin_assignments": "outputs/assignments/results/Final_Event_Assignments.csv",
+    "narrative_order": "hippo_prev_global and hippo_next_global in the public input"
+  },
+  "builder": "code/build_master_table.py",
+  "generated_output": "outputs/integration/master_regime_table_eventlevel_REFIT.csv",
+  "reference_output": "reference_outputs/master_regime_table_eventlevel_REFIT.csv",
+  "source_input_sha256": "2f6d1172b6e3d3939f3ec4f25a33baf1e1e3f973a4031afe5320d6e22290e4f9",
+  "csv_sha256": "60895725bef48121b4259e8fe8bcfab9bbef573e3306ff1936147ff42a70bd32",
+  "privacy": {
+    "participant_keys": "p01 through p05",
+    "event_keys": "Existing neutral event keys from the public input",
+    "original_identifiers_included": false,
+    "private_identifier_crosswalk_included": false
+  },
+  "validation": {
+    "rows": 256,
+    "columns": 46,
+    "participants": 5,
+    "participant_counts": {
+      "p01": 29,
+      "p02": 56,
+      "p03": 66,
+      "p04": 34,
+      "p05": 71
+    },
+    "directed_adjacencies": 251,
+    "macro_counts": {
+      "1": 133,
+      "2": 59,
+      "4": 47,
+      "3": 17
+    },
+    "all_shared_features_and_sequence_links_match_public_input": true,
+    "all_basin_and_macro_memberships_match_release_references": true,
+    "maximum_coordinate_difference": 0.0,
+    "all_sequence_descriptors_valid": true,
+    "removed_fields": [
+      "hippo_id",
+      "uid_norm",
+      "hippo_weight_tag",
+      "n_theme_assignments_event"
+    ],
+    "added_fields": [
+      "conj_rep",
+      "anchor_changed_to_next_within_segment"
+    ],
+    "identifiers": "Existing public keys retained consistently across participant, event, segment, chain and adjacency fields."
+  },
+  "basin_column_to_run_id": {
+    "basin_D4_10B": "D4_K10_L9_U47",
+    "basin_D4_9B": "D4_K9_L8_U49",
+    "basin_D4_6B": "D4_K6_L8_U50",
+    "basin_D2_9B": "D2_K9_L8_U50",
+    "basin_D2_8B": "D2_K8_L8_U39"
+  },
+  "sequence_conventions": {
+    "order": "Narrative order within participant-global directed chains; not the timing of recalled experiences.",
+    "ordering_authority": "hippo_prev_global and hippo_next_global in source_input; never infer order by sorting event identifiers.",
+    "membership_field": "macro_cluster_D4_K4",
+    "membership_scope": "Canonical 4-D four-cluster membership; independent of the five basin-state assignments.",
+    "run_definition": "A maximal consecutive stretch of event-states assigned to the same macro-cluster, including single-event runs.",
+    "boundary_rule": "A missing previous or next event-state is treated as not belonging to the current macro-cluster when deriving macro_seq_role.",
+    "role_status": "Deterministic sequence descriptors; not interpretive annotations or event-boundary rules. The excluded legacy structural_role field is not reinstated.",
+    "adjacent_event_fields": {
+      "hippo_prev_global": "Identifier of the preceding event-state; blank at the chain start.",
+      "hippo_next_global": "Identifier of the following event-state; blank at the chain end."
+    }
+  },
+  "derived_field_definitions": {
+    "chain_id": {
+      "type": "string",
+      "definition": "Identifier of the participant-global directed narrative chain, spanning transcript segments.",
+      "current_export_format": "participant_id_norm followed by :0; one chain per participant in this export."
+    },
+    "step": {
+      "type": "integer",
+      "definition": "Zero-based position in the chain, reconstructed from authoritative directed event links.",
+      "first_value": 0
+    },
+    "macro_cluster_prev": {
+      "type": "nullable categorical integer",
+      "definition": "Canonical macro-cluster membership of the immediately preceding event-state in the same chain.",
+      "missing_when": "First event-state in the chain.",
+      "csv_encoding": "Blank for missing; populated labels appear as 1.0, 2.0, 3.0, or 4.0."
+    },
+    "macro_cluster_next": {
+      "type": "nullable categorical integer",
+      "definition": "Canonical macro-cluster membership of the immediately following event-state in the same chain.",
+      "missing_when": "Last event-state in the chain.",
+      "csv_encoding": "Blank for missing; populated labels appear as 1.0, 2.0, 3.0, or 4.0."
+    },
+    "macro_seq_role": {
+      "type": "categorical string",
+      "definition": "Position within a consecutive run of event-states assigned to the same macro-cluster.",
+      "allowed_values": {
+        "single": "One-event run: neither adjacent event-state belongs to the current macro-cluster.",
+        "entry": "First event-state of a run of at least two: only the next adjacent event-state belongs to the current macro-cluster.",
+        "core": "Interior event-state of a run of at least three: both adjacent event-states belong to the current macro-cluster.",
+        "exit": "Last event-state of a run of at least two: only the previous adjacent event-state belongs to the current macro-cluster."
+      }
+    },
+    "macro_seen_before": {
+      "type": "boolean",
+      "csv_encoding": [
+        "True",
+        "False"
+      ],
+      "definition": "Whether the current macro-cluster occurred at any earlier step in the same chain, including earlier event-states in the current run.",
+      "rule": "current macro-cluster is in the set of macro-clusters at steps less than the current step",
+      "first_event_value": false
+    },
+    "macro_return_event": {
+      "type": "boolean",
+      "csv_encoding": [
+        "True",
+        "False"
+      ],
+      "definition": "Marks the first event-state on re-entry into a previously visited macro-cluster after at least one intervening event-state in another macro-cluster.",
+      "rule": "macro_seen_before is True AND macro_cluster_prev differs from macro_cluster_D4_K4",
+      "first_event_value": false,
+      "continued_run_value": false
+    }
+  },
+  "additional_fields": {
+    "segment_id": "Processing-segment label parsed from uid; not an analytical state.",
+    "Dim0_to_Dim12": "Coordinates from the fixed full-sample MCA solution.",
+    "macro_cluster_D4_K4": "Canonical four-cluster membership in the four-dimensional geometry.",
+    "basin_columns": "Solution-specific basin-state memberships. D2 refers to fitting in Dim0 and Dim3."
+  },
+  "removed_field_reasons": {
+    "hippo_id": "Duplicate original event identifier; hippo_id_norm supplies the public key.",
+    "uid_norm": "Duplicate processing-segment identifier; uid supplies the public key.",
+    "hippo_weight_tag": "Auxiliary annotation metadata unused in the public calculations and absent from the source input.",
+    "n_theme_assignments_event": "Auxiliary count unused in the public calculations; equals n_excerpts_event for all 256 supplied rows."
+  },
+  "added_field_sources": {
+    "conj_rep": "Copied unchanged from the public input; representational domain used in boundary summaries.",
+    "anchor_changed_to_next_within_segment": "Copied unchanged from the public input; privacy-preserving flag used in boundary summaries."
+  },
+  "verification_limit": "Comparison with existing release references and reconstruction of sequence descriptors do not establish that the full analytical pipeline has been rerun."
+}

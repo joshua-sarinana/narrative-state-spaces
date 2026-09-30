@@ -1,0 +1,49 @@
+{
+  "package": "REFIT_Controls",
+  "version": "1.0.0",
+  "assignments": [
+    "D4_K10_L9_U47",
+    "D4_K9_L8_U49",
+    "D4_K6_L8_U50",
+    "D2_K9_L8_U50",
+    "D2_K8_L8_U39"
+  ],
+  "participants": [
+    "p01",
+    "p02",
+    "p03",
+    "p04",
+    "p05"
+  ],
+  "events": 256,
+  "edges": 251,
+  "n_permutations": 10000,
+  "seed": 42,
+  "gamma": 0.9,
+  "primary_geometry_D": 4,
+  "reference_geometry_D": [
+    10,
+    13
+  ],
+  "representation": "full_successor_profile",
+  "participant_exclusion_geometry": [
+    "fixed_full_geometry",
+    "omission_specific_geometry"
+  ],
+  "participant_exclusion_recurrence": true,
+  "self_transition_persistence": true,
+  "visit_collapse": true,
+  "cross_participant_exclusion_and_visit_collapse": false,
+  "routing_controls": false,
+  "refit_MCA": false,
+  "refit_assignments": false,
+  "smoothing": false,
+  "null_event_shuffle": "independent within participant; participant order p01, p02, p03, p04, p05; seed reset per omission or full sequence control",
+  "visit_null": "shuffle event labels, then collapse maximal consecutive basin runs within each participant",
+  "geometry_null": "common row/column basin-label permutation of successor distance matrix; two-sided Pearson; draws with replacement",
+  "p_value_correction": "(1 + null exceedances)/(10000 + 1)",
+  "BH_families": "K basins within assignment and condition; separate persistence count and probability families",
+  "zero_outgoing_rows": "retain zero rows; solve successor matrix without imputation",
+  "absent_basin_after_omission": "retain frozen K; omission-specific geometry not estimable if any centroid absent",
+  "comparison_scope": "conditional descriptive sensitivity; no downstream selection of assignments"
+}
